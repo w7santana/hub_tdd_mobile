@@ -18,7 +18,23 @@ public class BuscaHomeTest extends BaseTest {
 
 		homePage.clicaNaCategoria(categoria);
 		homePage.escolheProdutoDaCategoria(produto);
-		Assert.assertTrue(homePage.lblProdutoEscolhido(produto));
+		Assert.assertTrue(homePage.lblProdutoEscolhido(produto).isDisplayed());
+	}
+	
+	@Test
+	public void deveInformarProdutoNaoEncontrado() throws Exception {
+		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Planilha2");
+		String categoria = ExcelUtils.getCellData(1,3);
+		homePage.clicaNaCategoria(categoria);
+		Thread.sleep(3000);
+		homePage.btnFiltro().click();
+		homePage.filtroCustomization();		
+		homePage.filtro2_in_1().click();
+		homePage.filtroCustomization();		
+		homePage.filtroMemory();
+		homePage.mem16Gb();
+		homePage.btnApplyFiltro().click();
+		Assert.assertTrue(homePage.lblNoResults().isDisplayed());
 	}
 	
 	

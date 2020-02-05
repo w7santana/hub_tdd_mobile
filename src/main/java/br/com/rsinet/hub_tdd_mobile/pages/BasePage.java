@@ -5,12 +5,13 @@ import static br.com.rsinet.hub_tdd_mobile.utility.DriverFactory.getDriver;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 
 import io.appium.java_client.MobileElement;
 
 public class BasePage {
+	
+	
+	
 	
 	public void clicar(By by) {
 		getDriver().findElement(by).click();

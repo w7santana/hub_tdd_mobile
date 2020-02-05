@@ -28,7 +28,7 @@ private static AndroidDriver<MobileElement> driver;
 	    desiredCapabilities.setCapability("automationName", "uiautomator2");
 	    desiredCapabilities.setCapability("appPackage", "com.Advantage.aShopping");
 	    desiredCapabilities.setCapability("appActivity", "com.Advantage.aShopping.SplashActivity");
-	    desiredCapabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\willian.costa\\eclipse-workspace\\servlets\\hub_tdd_mobile\\src\\main\\resources\\Advantage+demo+2_0.apk");
+	    desiredCapabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\willian.costa\\eclipse-workspace\\servlets\\hub_tdd_mobile\\src\\main\\resources\\Advantage+demo+2_2.apk");
 		
 		try {
 			//(DRIVER DE CONEXAO) COM QUEM VOU ME CONECTAR
