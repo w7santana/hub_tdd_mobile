@@ -29,6 +29,9 @@ private static AndroidDriver<MobileElement> driver;
 	    desiredCapabilities.setCapability("appPackage", "com.Advantage.aShopping");
 	    desiredCapabilities.setCapability("appActivity", "com.Advantage.aShopping.SplashActivity");
 	    desiredCapabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\willian.costa\\eclipse-workspace\\servlets\\hub_tdd_mobile\\src\\main\\resources\\Advantage+demo+2_2.apk");
+	    desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "60");
+		desiredCapabilities.setCapability("unicodeKeyboard", true);   
+		desiredCapabilities.setCapability("resetKeyboard", true);
 		
 		try {
 			//(DRIVER DE CONEXAO) COM QUEM VOU ME CONECTAR

@@ -2,15 +2,13 @@ package br.com.rsinet.hub_tdd_mobile.tests;
 
 
 import static br.com.rsinet.hub_tdd_mobile.utility.DriverFactory.getDriver;
-import static org.junit.Assert.assertTrue;
-
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.util.List;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
 
-import br.com.rsinet.hub_tdd_mobile.utility.DriverFactory;
 import io.appium.java_client.MobileElement;
 
 public class EncontraProdutoTest extends BaseTest {
@@ -37,7 +35,7 @@ public class EncontraProdutoTest extends BaseTest {
 		String lblProduto = getDriver().findElement(By.className("android.widget.TextView")).getText();
 		System.out.println(lblProduto);
 		
-		assertTrue(lblProduto.startsWith("BEATS STUDIO 2"));
+		Assert.assertTrue(lblProduto.startsWith("BEATS STUDIO 2"));
 //		DriverFactory.killDriver();
 	}
 	

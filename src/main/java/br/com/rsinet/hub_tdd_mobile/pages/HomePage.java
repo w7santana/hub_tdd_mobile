@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ByXPath;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.MobileElement;
 
@@ -17,7 +20,6 @@ public class HomePage extends BasePage {
 	}
 
 	public MobileElement lblNoResults() {
-//		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
 //		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.Advantage.aShopping:id/textViewNoProductsToShow")));
 		return getDriver().findElement(By.id("com.Advantage.aShopping:id/textViewNoProductsToShow"));
 	}
@@ -30,14 +32,14 @@ public class HomePage extends BasePage {
 //		System.out.println();
 	}
 
-	public void clicaNaCategoria(String categoria) {
-		clicarPorTexto(categoria);
+	public MobileElement clicaNaCategoria(String categoria) {
 		System.out.println(categoria);
+		return obterElementoPorTexto(categoria);
 	}
 
-	public void escolheProdutoDaCategoria(String produto) {
+	public MobileElement escolheProdutoDaCategoria(String produto) {
 		System.out.println(produto);
-		clicarPorTexto(produto);
+		return obterElementoPorTexto(produto);
 	}
 
 	public MobileElement lblProdutoEscolhido(String produto) {
@@ -45,8 +47,8 @@ public class HomePage extends BasePage {
 	}
 	
 	public MobileElement btnFiltro() {
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.Advantage.aShopping:id/gridViewProducts")));
 		return getDriver().findElementById("com.Advantage.aShopping:id/imageViewFilter");
-//		return getDriver().findElement(By.xpath("//android.widget.RelativeLayout[@content-desc=\"Laptops\"]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView"));
 	}
 	
 	public void filtrarPor() {
@@ -58,25 +60,39 @@ public class HomePage extends BasePage {
 		
 		clicar(By.xpath("//android.widget.LinearLayout//*[@text='BY COLOR']"));
 	}
-
-	public void filtroCustomization() {
-		clicarPorTexto("BY CUSTOMIZATION");
+	
+	
+	public MobileElement filtroCustomization() {
+		return (MobileElement) wait.until(ExpectedConditions.visibilityOf(obterElementoPorTexto("BY CUSTOMIZATION")));
+//		return obterElementoPorTexto("BY CUSTOMIZATION");
 	}
 	
 	public MobileElement filtro2_in_1() {
 		return getDriver().findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[3]/android.widget.LinearLayout"));
 	}
 	
-	public void filtroMemory() {
-		clicarPorTexto("BY MEMORY");
+	public MobileElement filtroMemory() {
+		return obterElementoPorTexto("BY MEMORY");
 	}
 	
-	public void mem16Gb() {
-		clicarPorTexto("16GB DDR3 - 2 DIMM");
+	public MobileElement mem16Gb() {
+		return obterElementoPorTexto("16GB DDR3 - 2 DIMM");
 	}
 	
 	public MobileElement btnApplyFiltro() {
 		return getDriver().findElement(By.id("com.Advantage.aShopping:id/textViewApply"));
+	}
+
+	public MobileElement menuLateral() {
+		return (MobileElement) wait.until(ExpectedConditions.elementToBeClickable(By.id("com.Advantage.aShopping:id/imageViewMenu")));
+	}
+
+	public RemoteWebElement btnLogin() {
+		return getDriver().findElementById("com.Advantage.aShopping:id/textViewMenuUser");
+	}
+	
+	public MobileElement usuarioLogado() {
+		return getDriver().findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser"));
 	}
 
 }
