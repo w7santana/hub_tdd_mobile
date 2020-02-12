@@ -16,7 +16,9 @@ public class BuscaLupaTest extends BaseTest{
 		test = Report.setUp("deveBuscarProdutoPelaLupa");
 		ExcelUtils.setupMassa("Planilha2");
 		String produtoExistente = ExcelUtils.getCellData(1,0);
-		homePage.buscarNaLupa(produtoExistente);
+		
+		homePage.campoPesquisa().sendKeys(produtoExistente);
+		homePage.clicaNaLupa().click();
 				
 		Assert.assertTrue(homePage.existeElementoPorTexto(produtoExistente));
 	}
@@ -27,7 +29,8 @@ public class BuscaLupaTest extends BaseTest{
 		ExcelUtils.setupMassa("Planilha2");
 
 		String produtoInexistente = ExcelUtils.getCellData(1,1);
-		homePage.buscarNaLupa(produtoInexistente);
+		homePage.campoPesquisa().sendKeys(produtoInexistente);
+		homePage.clicaNaLupa().click();
 		
 		Assert.assertTrue(homePage.lblNoResults().isDisplayed());
 		System.out.println(homePage.lblNoResults().getText());

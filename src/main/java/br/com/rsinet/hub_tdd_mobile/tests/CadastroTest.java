@@ -56,15 +56,16 @@ public class CadastroTest extends BaseTest {
 	}
 	
 	@Test
-	public void deveNegarCadastro() throws Exception {
+	public void deveValidarMinimoDeCaracteresUsuario() throws Exception {
 		test = Report.setUp("deveNegarCadastro");
 		homePage.menuLateral().click();
 		homePage.btnLogin().click();
 		loginPage.btnCriarConta().click();
 		cadastroPage.campoApelido().click();
 		cadastroPage.campoApelido().sendKeys("joao");
+		cadastroPage.campoEmail().click();
 		
-		Assert.assertTrue(cadastroPage.lblMinimoCaracteresInvalido().isDisplayed());
+		Assert.assertTrue(cadastroPage.lblMinimoCaracteresUsuarioInvalido().isDisplayed());
 	}
 	
 	

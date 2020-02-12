@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Testes advantageonlineshopping]">
-  <test thread-count="5" name="Test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="br.com.rsinet.hub_tdd_mobile.tests.CadastroTest">
+      <class name="br.com.rsinet.hub_tdd_mobile.tests.BuscaLupaTest">
         <methods>
           <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
           <include name="setup"/>
+          <include name="deveInformarSemResultados"/>
           <include name="finalizaClasse"/>
-          <include name="deveCadastrarUsuario"/>
         </methods>
-      </class> <!-- br.com.rsinet.hub_tdd_mobile.tests.CadastroTest -->
+      </class> <!-- br.com.rsinet.hub_tdd_mobile.tests.BuscaLupaTest -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Testes advantageonlineshopping] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

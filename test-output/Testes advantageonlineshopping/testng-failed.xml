@@ -3,12 +3,34 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Testes advantageonlineshopping]">
   <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="br.com.rsinet.hub_tdd_mobile.tests.BuscaLupaTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+          <include name="setup"/>
+          <include name="deveInformarSemResultados"/>
+          <include name="finalizaClasse"/>
+        </methods>
+      </class> <!-- br.com.rsinet.hub_tdd_mobile.tests.BuscaLupaTest -->
+      <class name="br.com.rsinet.hub_tdd_mobile.tests.BuscaHomeTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+          <include name="setup"/>
+          <include name="deveInformarProdutoNaoEncontrado"/>
+          <include name="finalizaClasse"/>
+        </methods>
+      </class> <!-- br.com.rsinet.hub_tdd_mobile.tests.BuscaHomeTest -->
       <class name="br.com.rsinet.hub_tdd_mobile.tests.CadastroTest">
         <methods>
           <include name="tearDown"/>
+          <include name="deveNegarCadastro"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
           <include name="setup"/>
           <include name="finalizaClasse"/>
-          <include name="deveCadastrarUsuario"/>
         </methods>
       </class> <!-- br.com.rsinet.hub_tdd_mobile.tests.CadastroTest -->
     </classes>

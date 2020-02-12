@@ -3,28 +3,30 @@ package br.com.rsinet.hub_tdd_mobile.pages;
 import static br.com.rsinet.hub_tdd_mobile.utility.DriverFactory.getDriver;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ById;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
 
 public class CadastroPage extends BasePage {
 	
 	public  MobileElement campoApelido() throws Exception {
-		return getDriver().findElementByXPath("//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.EditText");
+		return getDriver().findElementByXPath
+		("//*[@resource-id='com.Advantage.aShopping:id/AosEditTextUserName']/android.widget.EditText");
 	}
 	
 	public  MobileElement campoEmail() {
-		return getDriver().findElementByXPath("//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.EditText");
+		return getDriver().findElementByXPath
+				("//*[@resource-id='com.Advantage.aShopping:id/AosEditTextEmail']/android.widget.EditText");
+
 	}
 	
 	public  MobileElement campoSenha() {
-		return getDriver().findElementByXPath("//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.EditText\r\n");
+		return getDriver().findElementByXPath
+		("//*[@resource-id='com.Advantage.aShopping:id/AosEditTextPassword']/android.widget.EditText");
 	}
 	
 	public  MobileElement campoConfirmaSenha() {
-		return getDriver().findElementByXPath("//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[4]/android.widget.RelativeLayout/android.widget.EditText\r\n");
+		return getDriver().findElementByXPath
+				("//*[@resource-id='com.Advantage.aShopping:id/AosEditTextConfirmPassword']/android.widget.EditText");
 	}
 	
 	public  MobileElement campoNome() {
@@ -35,11 +37,6 @@ public class CadastroPage extends BasePage {
 	public  MobileElement campoUltimoNome() {
 		return getDriver().findElementByXPath
 		("//*[@resource-id='com.Advantage.aShopping:id/AosEditTextLastName']/android.widget.EditText");
-	}
-	
-	public  TouchAction scrollNoForm() {
-		TouchAction scroll = new TouchAction(getDriver());
-		return scroll.press(PointOption.point(1059, 1698)).moveTo(PointOption.point(1059, 300)).perform();
 	}
 	
 	public  MobileElement campoTelefone() {
@@ -80,8 +77,8 @@ public class CadastroPage extends BasePage {
 		return getDriver().findElementById("com.Advantage.aShopping:id/buttonRegister");
 	}
 
-	public MobileElement lblMinimoCaracteresInvalido() {
-		return retornarElemento(By.id("com.Advantage.aShopping:id/AosEditTextUserName"));
+	public MobileElement lblMinimoCaracteresUsuarioInvalido() {
+		return retornarElemento(By.xpath("//*[@resource-id='com.Advantage.aShopping:id/AosEditTextUserName']/*[@text='Use 5 characters or longer']"));
 	}
 	
 }

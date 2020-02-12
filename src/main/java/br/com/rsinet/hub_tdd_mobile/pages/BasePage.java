@@ -2,12 +2,10 @@ package br.com.rsinet.hub_tdd_mobile.pages;
 
 import static br.com.rsinet.hub_tdd_mobile.utility.DriverFactory.getDriver;
 
-import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.interactions.touch.SingleTapAction;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.MobileElement;
@@ -18,6 +16,14 @@ public class BasePage {
 	
 	private TouchAction action;
 	protected WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+	
+	public void ListaElmentosVisiveis(By by) {
+		List<MobileElement> categorias = getDriver().findElements(by);
+		for (MobileElement categoria:categorias) {
+			System.out.println(categoria.getText());
+		}
+		System.out.println();
+	}
 
 
 	public void tap(int x, int y) {

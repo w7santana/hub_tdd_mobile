@@ -11,32 +11,23 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Report {
-
-	
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
 	public static ExtentTest test;
 	
 	public static ExtentReports setExtent() {
-		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/myReport.html");
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/ExtentReport.html");
 		htmlReporter.config().setDocumentTitle("Relatorio de Testes"); // Titulo do report
 		htmlReporter.config().setReportName("Relatorio de Testes"); // Nome do report
 		htmlReporter.config().setTheme(Theme.DARK); // Seleciona o tema
 
 		extent = new ExtentReports();
-
 		extent.attachReporter(htmlReporter);
 		extent.setSystemInfo("Hostname", "LocalHost");
 		extent.setSystemInfo("OS", "Windows10");
 		extent.setSystemInfo("Tester Name", "Willian Santana");
 		extent.setSystemInfo("Browser", "Chrome");
-		
 		return extent;
-	}
-
-	/* Fecha o relatorio */
-	public static void closeReport(ExtentReports extent) {
-		extent.flush();
 	}
 
 	/* Cria o Report */
@@ -61,5 +52,10 @@ public class Report {
 			test.log(Status.PASS, "Test Case PASSED IS " + result.getName());
 			test.addScreenCaptureFromPath(screenshotPath);
 		}
+	}
+	
+	/* Fecha o relatorio */
+	public static void flushReport(ExtentReports extent) {
+		extent.flush();
 	}
 }
